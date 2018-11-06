@@ -1,0 +1,40 @@
+<app-header></app-header>
+<div class="container-fluid d-flex justify-content-center">
+  <h3 class="bp-textTitle">Basado en sus respuestas, le presentamos su perfil de inversión</h3>
+</div>
+<section>
+  <div class="bp-SubSection">
+    <div class="bp-boxInformation ">
+      <div class="card" style="width: 23rem;">
+        <div class="card-header text-center">
+          <p>{{profile | uppercase}}</p>
+        </div>
+        <ul class="list-group list-group-flush" *ngFor="let item of data">
+          <li class="list-group-item">Retorno promedio anual esperado¹<p>{{item.promedioAnual}}</p> </li>
+          <li class="list-group-item">Mejor año²<p> {{item.mejorAnio}}</p> </li>
+          <li class="list-group-item">Peor Año²<p>{{item.peorAnio}}</p> </li>
+          <li class="list-group-item"> <p class="text-justify">{{item.speech}}</p> </li>
+        </ul>
+      </div>
+      <div class="bp-textLeyen">
+        <p>
+          1/ Sobre la base de rentabilidades de largo plazo esperadas para la categoría de activo que componen los
+          portafolios de cada perfil <br>
+          2/ Sobre la base de un back test aplicados a los perfiles para los ultimos 10 años
+        </p>
+      </div>
+    </div>
+    <div class="bp-boxDona">
+      <div>
+        <app-grafico-dona></app-grafico-dona>
+      </div>
+    </div>
+  </div>
+
+  <div class="bp-divBtnRegistrarme text-center d-flex justify-content-center">
+    <!-- <button class="btn btn-primary btn-lg" (click)="vistaRegistro()">Registro</button> -->
+    <!-- <a href="#" class="btn btn-primary btn-lg" tabindex="-1" role="button" aria-disabled="true" (click)="vistaRegistro()" >Registrarme</a> -->
+      <a [routerLink]="['/conociendo-mi-perfil']">< Cambiar mi respuesta</a>
+      <button class="btn btn-primary btn-lg disabled" (click)="vistaRegistro()">Registrarme</button>
+  </div>
+</section>
